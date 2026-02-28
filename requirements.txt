@@ -1,0 +1,14 @@
+langchain-openai
+langchain-core
+streamlit
+dotenv
+langchain-community
+langserve
+fastapi
+uvicorn
+langchain-groq
+langchain-text-splitters
+langchain
+pypdf
+faiss-cpu
+groq

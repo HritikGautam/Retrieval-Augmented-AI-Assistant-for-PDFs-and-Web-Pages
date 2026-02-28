@@ -1,0 +1,12 @@
+# Files you specifically requested
+app.py
+ollama.py
+temp.pdf
+
+# Crucial files to exclude
+venv/
+.env
+
+# Other recommended exclusions
+__pycache__/
+*.pyc
