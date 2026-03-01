@@ -95,7 +95,7 @@ if st.button("Process"):
     # Text Splitting
 
     st.session_state.text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=400,
+        chunk_size=500,
         chunk_overlap=50
     )
 
@@ -112,19 +112,6 @@ if st.button("Process"):
     st.session_state.embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
-
-    # st.session_state.embeddings = HuggingFaceInferenceAPIEmbeddings(
-    #     api_key=hf_token,
-    #     model_name="sentence-transformers/all-MiniLM-L6-v2"
-    # )
-    # st.session_state.embeddings = OllamaEmbeddings(model="llama3.2")
-    
-    # try:
-    #     test_res = st.session_state.embeddings.embed_query("test")
-    #     st.write("✅ Success")
-    # except Exception :
-    #     st.error("❌ API returned empty.")
-    #     st.stop()
 
     # Vector Store Creation
 
