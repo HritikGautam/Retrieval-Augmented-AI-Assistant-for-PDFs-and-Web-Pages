@@ -104,6 +104,11 @@ if st.button("Process"):
    
 
     # Making embeddings
+    if hf_token:
+        st.write(f"Token diagnostic: ✅ Loaded (Starts with: {hf_token[:5]}...)")
+    else:
+        st.error("❌ Token diagnostic: NOT LOADED. Check your Streamlit Secrets name.")
+        st.stop()
     
     st.session_state.embeddings = HuggingFaceInferenceAPIEmbeddings(
         api_key=hf_token,
