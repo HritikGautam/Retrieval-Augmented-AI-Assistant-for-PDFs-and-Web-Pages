@@ -110,6 +110,13 @@ if st.button("Process"):
         model_name="sentence-transformers/all-MiniLM-L12-v2"
     )
     # st.session_state.embeddings = OllamaEmbeddings(model="llama3.2")
+    
+    try:
+        test_res = st.session_state.embeddings.embed_query("test")
+        st.write("Embedding check: ✅ Success")
+    except Exception :
+        st.error("❌ API returned empty or is loading. Wait 30s and click Process again.")
+        st.stop()
 
     test_res = st.session_state.embeddings.embed_query("test")
     st.write(f"Embedding check: {'✅ Success' if test_res else '❌ EMPTY'}")
