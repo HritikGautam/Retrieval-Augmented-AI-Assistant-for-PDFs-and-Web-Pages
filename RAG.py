@@ -101,6 +101,7 @@ if st.button("Process"):
     # processed to 20 here to reduce processing time. You can increase it as per your requirement and system capabilities.
     
     final_documents = st.session_state.text_splitter.split_documents(docs)[:20]
+    print(len(final_documents))
 
     # Making embeddings
     
