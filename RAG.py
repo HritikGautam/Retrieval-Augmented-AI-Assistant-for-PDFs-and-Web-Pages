@@ -10,7 +10,8 @@ from langchain_classic.chains.combine_documents.stuff import create_stuff_docume
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_classic.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+# from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 
 ''' Important info:- 
@@ -104,11 +105,15 @@ if st.button("Process"):
    
 
     # Making embeddings
-
-    st.session_state.embeddings = HuggingFaceInferenceAPIEmbeddings(
-        api_key=hf_token,
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    
+    st.session_state.embeddings = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
+
+    # st.session_state.embeddings = HuggingFaceInferenceAPIEmbeddings(
+    #     api_key=hf_token,
+    #     model_name="sentence-transformers/all-MiniLM-L6-v2"
+    # )
     # st.session_state.embeddings = OllamaEmbeddings(model="llama3.2")
     
     # try:
