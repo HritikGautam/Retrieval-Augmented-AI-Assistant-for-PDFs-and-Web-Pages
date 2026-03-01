@@ -10,7 +10,7 @@ from langchain_classic.chains.combine_documents.stuff import create_stuff_docume
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_classic.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+from langchain_huggingface import HuggingFaceInferenceAPIEmbeddings
 from dotenv import load_dotenv
 
 ''' Important info:- 
@@ -91,8 +91,8 @@ if st.button("Process"):
     # Text Splitting
 
     st.session_state.text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=200
+        chunk_size=400,
+        chunk_overlap=50
     )
 
     # Above we are limiting the number of documents/chunks "[:20]" to be processed to 20 to reduce processing time.
@@ -108,7 +108,6 @@ if st.button("Process"):
     st.session_state.embeddings = HuggingFaceInferenceAPIEmbeddings(
         api_key=hf_token,
         model_name="sentence-transformers/all-MiniLM-L6-v2",
-        additional_headers={"X-Wait-For-Model": "true"}
     )
     # st.session_state.embeddings = OllamaEmbeddings(model="llama3.2")
 
